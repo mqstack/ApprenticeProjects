@@ -12,6 +12,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     var items: [ChecklistItem]
     
+    var checklist: Checklist!
+    
     required init?(coder aDecoder: NSCoder){
         
         items = [ChecklistItem]()
@@ -21,6 +23,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         loadChecklistItems()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = checklist.name
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
